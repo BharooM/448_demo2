@@ -10,18 +10,15 @@ import android.widget.Button;
 public class register_activity extends AppCompatActivity
 {
     private Button submitButton;
-    //private TextInputLayout passwordInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        setTitle("Healthy Belly");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_activity);
 
         submitButton = (Button) findViewById(R.id.submit_button);
-        //passwordInput = (TextInputLayout) findViewById(R.id.password_input);
-
-        //passwordInput.setPasswordVisibilityToggleEnabled(true);
 
         submitButton.setOnClickListener(new View.OnClickListener()
         {
