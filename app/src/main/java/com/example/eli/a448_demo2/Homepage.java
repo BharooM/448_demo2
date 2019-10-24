@@ -18,6 +18,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ public class Homepage extends AppCompatActivity
     DrawerLayout dLayout;
     ActionBarDrawerToggle aToggle;
     NavigationView nView;
+    Button cameraButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -41,6 +44,17 @@ public class Homepage extends AppCompatActivity
         dLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         aToggle = new ActionBarDrawerToggle(this, dLayout, R.string.open, R.string.close);
         nView = (NavigationView) findViewById(R.id.navigation_view);
+        cameraButton = (Button) findViewById(R.id.camera_button);
+
+        cameraButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent,0);
+            }
+        });
 
         nView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
