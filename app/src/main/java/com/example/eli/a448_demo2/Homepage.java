@@ -1,5 +1,7 @@
 package com.example.eli.a448_demo2;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -46,8 +48,24 @@ public class Homepage extends AppCompatActivity
                 {
                     case R.id.log_out:
                         openMainActivity();
-//                    case R.id.about_us:
-//                    case R.id.delete_profile:
+                        break;
+                    case R.id.delete_profile:
+                        String[] options = {"• Yes, I'm sure."};
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Homepage.this);
+                        builder.setTitle("Are you sure you want to delete your profile?");
+                        builder.setItems(options, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                openMainActivity();
+                            }
+                        });
+                        builder.show();
+                        break;
+                    case R.id.about_us:
+                        openAboutUs();
+                        break;
 //                    case R.id.help_contact:
 //                    case R.id.payment:
 //                    case R.id.history:
@@ -90,5 +108,11 @@ public class Homepage extends AppCompatActivity
     {
         Intent mainIntent = new Intent(this, MainActivity.class);
         startActivity(mainIntent);
+    }
+
+    public void openAboutUs()
+    {
+        Intent aboutIntent = new Intent(this, AboutUs.class);
+        startActivity(aboutIntent);
     }
 }
