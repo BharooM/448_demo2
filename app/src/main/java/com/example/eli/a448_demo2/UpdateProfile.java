@@ -3,7 +3,7 @@ package com.example.eli.a448_demo2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AboutUs extends AppCompatActivity
+public class UpdateProfile extends AppCompatActivity
 {
 
     @Override
@@ -11,6 +11,6 @@ public class AboutUs extends AppCompatActivity
     {
         setTitle("Healthy Belly");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_us);
+        setContentView(R.layout.activity_update_profile);
     }
 }

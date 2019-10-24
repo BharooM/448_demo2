@@ -9,6 +9,7 @@ public class HelpActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        setTitle("Healthy Belly");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
     }

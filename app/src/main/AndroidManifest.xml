@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HelpActivity"></activity>
+        <activity android:name=".History"></activity>
+        <activity android:name=".Payment" />
+        <activity android:name=".UpdateProfile" />
+        <activity android:name=".Profile" />
+        <activity android:name=".HelpActivity" />
         <activity android:name=".AboutUs" />
         <activity android:name=".Homepage" />
         <activity android:name=".register_activity" />

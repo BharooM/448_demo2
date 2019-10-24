@@ -1,6 +1,8 @@
 package com.example.eli.a448_demo2;
 
 import android.app.AlertDialog;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,6 +12,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -66,10 +69,18 @@ public class Homepage extends AppCompatActivity
                     case R.id.about_us:
                         openAboutUs();
                         break;
-//                    case R.id.help_contact:
-//                    case R.id.payment:
-//                    case R.id.history:
-//                    case R.id.update_profile:
+                    case R.id.help_contact:
+                        openHelp();
+                        break;
+                    case R.id.update_profile:
+                        openProfile();
+                        break;
+                    case R.id.payment:
+                        openPayment();
+                        break;
+                    case R.id.history:
+                        openHistory();
+                        break;
 //                    case R.id.search:
                 }
                 return true;
@@ -81,8 +92,8 @@ public class Homepage extends AppCompatActivity
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent,0);
+        //Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        //startActivityForResult(intent,0);
     }
 
     @Override
@@ -114,5 +125,29 @@ public class Homepage extends AppCompatActivity
     {
         Intent aboutIntent = new Intent(this, AboutUs.class);
         startActivity(aboutIntent);
+    }
+
+    public void openHelp()
+    {
+        Intent helpIntent = new Intent(this, HelpActivity.class);
+        startActivity(helpIntent);
+    }
+
+    public void openProfile()
+    {
+        Intent profileIntent = new Intent(this, UpdateProfile.class);
+        startActivity(profileIntent);
+    }
+
+    public void openPayment()
+    {
+        Intent paymentIntent = new Intent(this, Payment.class);
+        startActivity(paymentIntent);
+    }
+
+    public void openHistory()
+    {
+        Intent historyIntent = new Intent(this, History.class);
+        startActivity(historyIntent);
     }
 }
