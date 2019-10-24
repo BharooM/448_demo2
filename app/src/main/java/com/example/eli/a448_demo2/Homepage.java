@@ -81,7 +81,9 @@ public class Homepage extends AppCompatActivity
                     case R.id.history:
                         openHistory();
                         break;
-//                    case R.id.search:
+                    case R.id.search:
+                        openSearch();
+                        break;
                 }
                 return true;
             }
@@ -149,5 +151,11 @@ public class Homepage extends AppCompatActivity
     {
         Intent historyIntent = new Intent(this, History.class);
         startActivity(historyIntent);
+    }
+
+    public void openSearch()
+    {
+        Intent searchIntent = new Intent(this, Search.class);
+        startActivity(searchIntent);
     }
 }

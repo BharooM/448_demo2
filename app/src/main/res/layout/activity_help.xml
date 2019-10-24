@@ -22,15 +22,15 @@
 
     <TextView
         android:id="@+id/description"
-        android:layout_width="322dp"
-        android:layout_height="481dp"
-        android:text="    Phone: 949-867-5309\n\n\n Email: pregnant@gmail.com"
+        android:layout_width="287dp"
+        android:layout_height="300dp"
+        android:text="Phone: 949-867-5309\n\n\nEmail: pregnant@gmail.com"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.629"
+        app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.936"></TextView>
+        app:layout_constraintVertical_bias="0.64"></TextView>
 
 </android.support.constraint.ConstraintLayout>
