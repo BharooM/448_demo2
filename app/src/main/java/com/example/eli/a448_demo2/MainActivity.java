@@ -1,13 +1,52 @@
 package com.example.eli.a448_demo2;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity
+{
+    private Button loginButton;
+    private Button registerButton;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        loginButton = (Button) findViewById(R.id.login_button);
+        registerButton = (Button) findViewById(R.id.register_button);
+
+        loginButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                openLoginActivity();
+            }
+        });
+
+        registerButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                openRegisterActivity();
+            }
+        });
+    }
+
+    public void openLoginActivity()
+    {
+        Intent loginIntent = new Intent(this, login_activity.class);
+        startActivity(loginIntent);
+    }
+
+    public void openRegisterActivity()
+    {
+        Intent registerIntent = new Intent(this, register_activity.class);
+        startActivity(registerIntent);
     }
 }
