@@ -98,6 +98,9 @@ public class Homepage extends AppCompatActivity
                     case R.id.search:
                         openSearch();
                         break;
+                    case R.id.home:
+                        openHome();
+                        break;
                 }
                 return true;
             }
@@ -108,8 +111,8 @@ public class Homepage extends AppCompatActivity
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        //startActivityForResult(intent,0);
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent,0);
     }
 
     @Override
@@ -170,6 +173,12 @@ public class Homepage extends AppCompatActivity
     public void openSearch()
     {
         Intent searchIntent = new Intent(this, Search.class);
+        startActivity(searchIntent);
+    }
+
+    public void openHome()
+    {
+        Intent searchIntent = new Intent(this, Homepage.class);
         startActivity(searchIntent);
     }
 }
