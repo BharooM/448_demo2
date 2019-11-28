@@ -125,9 +125,7 @@ public class MainActivity extends AppCompatActivity
 
     public void openLoginActivity()
     {
-//        Intent loginIntent = new Intent(this, login_activity.class);
-//        startActivity(loginIntent);
-        Intent loginIntent = new Intent(this, Search.class);
+        Intent loginIntent = new Intent(this, login_activity.class);
         startActivity(loginIntent);
     }
 

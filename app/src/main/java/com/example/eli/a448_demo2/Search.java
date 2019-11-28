@@ -95,10 +95,8 @@ public class Search extends AppCompatActivity
 
                             String data = "";
 
-                            data += "Name: " + res.getString(1) + "\n";
-                            data += "Brand: " + res.getString(2) + "\n";
-                            data += "Size: " + res.getString(3) + "\n";
-                            data += "Ingredients: " + res.getString(4) + "\n";
+                            data += "Name: " + res.getString(1) + " ";
+                            data += "Brand: " + res.getString(2);
 
                             arrayList.add(data);
                         }
