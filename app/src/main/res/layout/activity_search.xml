@@ -17,17 +17,56 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/csv"
+            android:layout_width="265dp"
+            android:layout_height="77dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.89"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </android.support.design.widget.TextInputLayout>
+
+        <ListView
+            android:id="@+id/results"
+            android:layout_width="409dp"
+            android:layout_height="482dp"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/search" />
+            app:layout_constraintVertical_bias="1.0"></ListView>
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/textInputEditText"
+            android:layout_width="318dp"
+            android:layout_height="42dp"
+            android:hint="Search For..."
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.172"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.129" />
+
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="54dp"
+            android:layout_height="47dp"
+            android:text="🔍"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.434"
+            app:layout_constraintStart_toEndOf="@+id/textInputEditText"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.122" />
+
     </android.support.constraint.ConstraintLayout>
+
 
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view"

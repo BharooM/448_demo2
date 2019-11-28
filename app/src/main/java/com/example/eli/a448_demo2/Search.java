@@ -1,21 +1,48 @@
 package com.example.eli.a448_demo2;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Search extends AppCompatActivity
 {
     DrawerLayout dLayout;
     ActionBarDrawerToggle aToggle;
     NavigationView nView;
+
+    ListView results;
+    ArrayAdapter<String> adapter;
+    ArrayList<String> arrayList;
+    Button searchButton;
+    TextInputEditText input;
+
+    DatabaseHelper myDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -27,6 +54,67 @@ public class Search extends AppCompatActivity
         dLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         aToggle = new ActionBarDrawerToggle(this, dLayout, R.string.open, R.string.close);
         nView = (NavigationView) findViewById(R.id.navigation_view);
+        results = (ListView)findViewById(R.id.results);
+        searchButton = (Button)findViewById(R.id.search_button);
+        input = (TextInputEditText)findViewById(R.id.textInputEditText);
+
+        arrayList = new ArrayList<>();
+
+        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, arrayList);
+        results.setAdapter(adapter);
+
+        myDb = new DatabaseHelper(this);
+
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                if (v != null) {
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+
+                adapter = null;
+                arrayList.clear();
+
+                String value = input.getText().toString();
+
+                Cursor res = myDb.getAllData();
+
+                int count = 0;
+
+                if (!value.equals(""))
+                {
+                    while (res.moveToNext())
+                    {
+                        String name = res.getString(1);
+
+                        if (name.toLowerCase().contains(value.toLowerCase()))
+                        {
+                            count++;
+
+                            String data = "";
+
+                            data += "Name: " + res.getString(1) + "\n";
+                            data += "Brand: " + res.getString(2) + "\n";
+                            data += "Size: " + res.getString(3) + "\n";
+                            data += "Ingredients: " + res.getString(4) + "\n";
+
+                            arrayList.add(data);
+                        }
+                    }
+                }
+
+                if (count == 0)
+                {
+                    arrayList.add("No results...");
+                }
+
+                adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, arrayList);
+                results.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+            }
+        });
 
         nView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
         {
